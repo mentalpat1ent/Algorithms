@@ -29,3 +29,33 @@ It has a time complexity of O(n) and O(1) space complexity.
         
         return -1     
 ```
+
+```js
+function findMajority(nums)
+  {
+    var count = 0, candidate = -1;
+
+    for (var index = 0; index < nums.length; index++) {
+      if (count == 0) {
+        candidate = nums[index];
+        count = 1;
+      }
+      else {
+        if (nums[index] == candidate)
+          count++;
+        else
+          count--;
+      }
+    }
+
+    count = 0;
+    for (var index = 0; index < nums.length; index++) {
+      if (nums[index] == candidate)
+        count++;
+    }
+    if (count > (nums.length / 2))
+      return candidate;
+    return -1;
+
+  }
+```
